@@ -1,0 +1,21 @@
+import { prismaClient } from "../src/application/database";
+import bcrypt from "bcrypt";
+
+export const removeUser = async () => {
+  await prismaClient.user.delete({
+    where: {
+      username: "test",
+    },
+  });
+};
+
+export const createUser = async () => {
+  await prismaClient.user.create({
+    data: {
+      username: "test",
+      password: await bcrypt.hash("rahasia", 10),
+      name: "test",
+      token: "test",
+    },
+  });
+};
