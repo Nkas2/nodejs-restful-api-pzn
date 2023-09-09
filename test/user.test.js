@@ -155,3 +155,79 @@ describe("GET /api/users/current", () => {
     expect(result.body.errors).toBeDefined();
   });
 });
+
+describe("PATCH /api/users/current", () => {
+  beforeEach(async () => {
+    await createUser();
+  });
+
+  afterEach(async () => {
+    await removeUser();
+  });
+  it("should can update if data valid", async () => {
+    const result = await supertest(web)
+      .patch("/api/users/current")
+      .set("Authorization", "test")
+      .send({
+        name: "agus",
+        password: "agus",
+      });
+
+    logger.info(result.body);
+    expect(result.status).toBe(200);
+    expect(result.body.data.name).toBe("agus");
+    expect(result.body.data.username).toBe("test");
+  });
+
+  it("should can update if data just have name", async () => {
+    const result = await supertest(web)
+      .patch("/api/users/current")
+      .set("Authorization", "test")
+      .send({
+        name: "agus",
+      });
+
+    logger.info(result.body);
+    expect(result.status).toBe(200);
+    expect(result.body.data.name).toBe("agus");
+    expect(result.body.data.username).toBe("test");
+  });
+
+  it("should can update if data just have password", async () => {
+    const result = await supertest(web)
+      .patch("/api/users/current")
+      .set("Authorization", "test")
+      .send({
+        password: "agus",
+      });
+
+    logger.info(result.body);
+    expect(result.status).toBe(200);
+    expect(result.body.data.name).toBe("test");
+    expect(result.body.data.username).toBe("test");
+  });
+
+  it("should reject if token is invalid", async () => {
+    const result = await supertest(web)
+      .patch("/api/users/current")
+      .set("Authorization", "slah")
+      .send({
+        password: "agus",
+      });
+
+    logger.info(result.body);
+    expect(result.status).toBe(401);
+    expect(result.body.errors).toBeDefined();
+  });
+
+  it("should reject if data is null", async () => {
+    const result = await supertest(web)
+      .patch("/api/users/current")
+      .set("Authorization", "test")
+      .send({});
+
+    logger.info(result.body);
+    expect(result.status).toBe(400);
+    expect(result.body.errors).toBeDefined();
+  });
+});

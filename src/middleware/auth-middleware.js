@@ -21,7 +21,7 @@ export const authMiddleware = async (req, res, next) => {
         errors: "Unauthorized",
       });
     } else {
-      req.body.user = user;
+      req.user = user;
       next();
     }
   }
