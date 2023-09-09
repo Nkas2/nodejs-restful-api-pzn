@@ -22,7 +22,19 @@ const login = async (req, res, next) => {
   }
 };
 
+const get = async (req, res, next) => {
+  try {
+    const user = await userService.get(req.body.user.username);
+    res.status(200).json({
+      data: user,
+    });
+  } catch (e) {
+    next(e);
+  }
+};
+
 export default {
   register,
   login,
+  get,
 };
