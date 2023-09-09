@@ -231,3 +231,33 @@ describe("PATCH /api/users/current", () => {
     expect(result.body.errors).toBeDefined();
   });
 });
+
+describe("DELETE /api/users/logout", () => {
+  beforeEach(async () => {
+    await createUser();
+  });
+
+  afterEach(async () => {
+    await removeUser();
+  });
+
+  it("should can logout", async () => {
+    const result = await supertest(web)
+      .delete("/api/users/logout")
+      .set("Authorization", "test");
+
+    logger.info(result.body);
+    expect(result.status).toBe(200);
+    expect(result.body.data).toBe("OK");
+  });
+
+  it("should reject if token is invalid as", async () => {
+    const result = await supertest(web)
+      .delete("/api/users/logout")
+      .set("Authorization", "salah");
+
+    logger.info(result.body);
+    expect(result.status).toBe(401);
+    expect(result.body.errors).toBeDefined();
+  });
+});
