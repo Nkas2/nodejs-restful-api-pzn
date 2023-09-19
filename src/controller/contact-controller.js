@@ -52,7 +52,7 @@ const search = async (req, res, next) => {
       name: req.query.name,
       email: req.query.email,
       phone: req.query.phone,
-      page: req.query.phone,
+      page: req.query.page,
       size: req.query.size,
     };
 

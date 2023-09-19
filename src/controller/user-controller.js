@@ -1,4 +1,4 @@
-import userService from "../service/user-service.js";
+import userService from "../service/user-service";
 
 const register = async (req, res, next) => {
   try {
@@ -24,12 +24,13 @@ const login = async (req, res, next) => {
 
 const get = async (req, res, next) => {
   try {
-    const user = await userService.get(req.user.username);
+    const username = req.user.username;
+    const result = await userService.get(username);
     res.status(200).json({
-      data: user,
+      data: result,
     });
-  } catch (e) {
-    next(e);
+  } catch (er) {
+    next(er);
   }
 };
 

@@ -120,12 +120,12 @@ const search = async (request, username) => {
       OR: [
         {
           first_name: {
-            contain: request.name,
+            contains: request.name,
           },
         },
         {
           last_name: {
-            contain: request.name,
+            contains: request.name,
           },
         },
       ],
@@ -135,7 +135,7 @@ const search = async (request, username) => {
   if (request.email) {
     filter.push({
       email: {
-        contain: request.email,
+        contains: request.email,
       },
     });
   }
@@ -143,7 +143,7 @@ const search = async (request, username) => {
   if (request.phone) {
     filter.push({
       phone: {
-        contain: request.phone,
+        contains: request.phone,
       },
     });
   }
@@ -163,7 +163,7 @@ const search = async (request, username) => {
   });
 
   return {
-    data: filter,
+    data: contacts,
     paging: {
       page: request.page,
       total_item: total,
