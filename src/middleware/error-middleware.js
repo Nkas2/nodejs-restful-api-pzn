@@ -1,10 +1,10 @@
 import { ResponseError } from "../error/response-error.js";
 
 const errorMiddleware = (err, req, res, next) => {
-  // if (!err) {
-  //   next();
-  //   return;
-  // }
+  if (!err) {
+    next();
+    return;
+  }
 
   if (err instanceof ResponseError) {
     res

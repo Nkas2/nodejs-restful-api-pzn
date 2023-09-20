@@ -216,7 +216,7 @@ describe("DELETE /api/contacts/:id", () => {
       .delete(`/api/contacts/${user.id}`)
       .set("Authorization", "test");
 
-    logger.info(result.body);
+    // logger.info(result.body);
     expect(result.status).toBe(200);
     expect(result.body.data).toBeDefined();
   });
@@ -227,7 +227,7 @@ describe("DELETE /api/contacts/:id", () => {
       .delete(`/api/contacts/${user.id + 1}`)
       .set("Authorization", "test");
 
-    logger.info(result.body);
+    // logger.info(result.body);
     expect(result.status).toBe(404);
     expect(result.body.errors).toBeDefined();
   });
@@ -238,7 +238,7 @@ describe("DELETE /api/contacts/:id", () => {
       .delete(`/api/contacts/-4`)
       .set("Authorization", "test");
 
-    logger.info(result.body);
+    // logger.info(result.body);
     expect(result.status).toBe(400);
     expect(result.body.errors).toBeDefined();
   });
@@ -275,7 +275,7 @@ describe("GET api/contacts", () => {
       })
       .set("Authorization", "test");
 
-    console.log(result.body);
+    // console.log(result.body);
 
     expect(result.status).toBe(200);
     expect(result.body.data.length).toBe(5);
@@ -292,7 +292,7 @@ describe("GET api/contacts", () => {
       })
       .set("Authorization", "test");
 
-    console.info(result.body);
+    // console.info(result.body);
 
     expect(result.status).toBe(200);
     expect(result.body.data.length).toBe(6);
@@ -309,7 +309,7 @@ describe("GET api/contacts", () => {
       })
       .set("Authorization", "test");
 
-    console.info(result.body);
+    // console.info(result.body);
 
     expect(result.status).toBe(200);
     expect(result.body.data.length).toBe(6);
@@ -326,7 +326,7 @@ describe("GET api/contacts", () => {
       })
       .set("Authorization", "test");
 
-    console.info(result.body);
+    // console.info(result.body);
 
     expect(result.status).toBe(200);
     expect(result.body.data.length).toBe(6);

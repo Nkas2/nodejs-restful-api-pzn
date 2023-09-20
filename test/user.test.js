@@ -1,6 +1,5 @@
 import supertest from "supertest";
 import { web } from "../src/application/web.js";
-import { logger } from "../src/application/logging.js";
 import { createUser, removeUser } from "./test-util.js";
 
 describe("POST /api/users", function () {

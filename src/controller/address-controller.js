@@ -14,22 +14,6 @@ const create = async (req, res, next) => {
   }
 };
 
-// const get = async (req, res, next) => {
-//   try {
-//     const result = await addressService.get(
-//       req.user,
-//       req.params.contactId,
-//       req.params.addressId
-//     );
-//     console.log(result);
-//     res.status(200).json({
-//       data: result,
-//     });
-//   } catch (e) {
-//     next(e);
-//   }
-// };
-
 const get = async (req, res, next) => {
   try {
     const user = req.user;
@@ -46,7 +30,52 @@ const get = async (req, res, next) => {
   }
 };
 
+const update = async (req, res, next) => {
+  try {
+    const request = req.body;
+    request.id = req.params.addressId;
+    res.status(200).json({
+      data: await addressService.update(
+        req.user,
+        req.params.contactId,
+        request
+      ),
+    });
+  } catch (e) {
+    next(e);
+  }
+};
+
+const remove = async (req, res, next) => {
+  try {
+    const result = await addressService.remove(
+      req.user,
+      req.params.contactId,
+      req.params.addressId
+    );
+    res.status(200).json({
+      data: "OK",
+    });
+  } catch (e) {
+    next(e);
+  }
+};
+
+const list = async (req, res, next) => {
+  try {
+    const result = await addressService.list(req.user, req.params.contactId);
+    res.status(200).json({
+      data: result,
+    });
+  } catch (e) {
+    next(e);
+  }
+};
+
 export default {
   create,
   get,
+  update,
+  remove,
+  list,
 };
