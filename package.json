@@ -13,7 +13,6 @@
     "winston": "^3.10.0"
   },
   "scripts": {
-    "install": "npm install --omit=dev",
     "prestart": "prisma generate",
     "start": "node src/main.js"
   },
