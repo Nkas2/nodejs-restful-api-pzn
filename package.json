@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "nodemon src/main.ts",
-    "build": "yarn migrate:deploy",
+    "build": "npx migrate:deploy",
     "start": "node src/main.js",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
