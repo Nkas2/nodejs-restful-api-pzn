@@ -1,4 +1,5 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client/edge.js";
+// import { PrismaClient } from "../../../prisma/generated/client/edge.js";
 import { logger } from "./logging.js";
 
 export const prismaClient = new PrismaClient({

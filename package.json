@@ -15,7 +15,6 @@
     "winston": "^3.10.0"
   },
   "scripts": {
-    "test": "jest -i",
     "prestart": "prisma generate",
     "start": "node src/main.js"
   },
