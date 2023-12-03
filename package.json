@@ -17,7 +17,7 @@
   "scripts": {
     "test": "jest -i",
     "start": "node src/main.js",
-    "build": "npx prisma generate",
+    "build": "prisma generate",
     "postinstall": "prisma generate"
   },
   "jest": {
