@@ -18,7 +18,7 @@
     "test": "jest -i",
     "start": "node src/main.js",
     "build": "prisma generate",
-    "postinstall": "prisma generate"
+    "preinstall": "prisma generate"
   },
   "jest": {
     "transform": {
