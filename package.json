@@ -14,7 +14,7 @@
   },
   "scripts": {
     "dev": "nodemon src/main.js",
-    "build": "npm run migrate:deploy",  // Menghapus tsc dari sini
+    "build": "npm run migrate:deploy",  
     "start": "node src/main.js",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
