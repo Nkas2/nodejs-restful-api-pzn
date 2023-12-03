@@ -13,8 +13,8 @@
     "winston": "^3.10.0"
   },
   "scripts": {
-    "dev": "nodemon src/main.ts",
-    "build": "npx migrate:deploy",
+    "dev": "nodemon src/main.js",
+    "build": "npm run migrate:deploy",  // Menghapus tsc dari sini
     "start": "node src/main.js",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
