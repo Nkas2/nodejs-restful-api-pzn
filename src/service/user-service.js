@@ -7,7 +7,7 @@ import {
   updateUserValidation,
 } from "../validation/userValidation.js";
 import { validate } from "../validation/validation.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { v4 as uuid } from "uuid";
 
 const register = async (request) => {
