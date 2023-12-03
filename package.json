@@ -16,7 +16,8 @@
   },
   "scripts": {
     "test": "jest -i",
-    "start": "node src/main.js"
+    "start": "node src/main.js",
+    "postinstall": "prisma generate"
   },
   "jest": {
     "transform": {
