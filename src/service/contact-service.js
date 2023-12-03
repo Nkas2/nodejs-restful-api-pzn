@@ -7,7 +7,6 @@ import {
   searchContactValidation,
   updateContactValidation,
 } from "../validation/contactValidation.js";
-import { date } from "joi";
 
 const create = async (username, request) => {
   request = validate(createContactValidation, request);

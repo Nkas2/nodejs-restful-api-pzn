@@ -1,4 +1,4 @@
-import Joi, { number } from "joi";
+import Joi from "joi";
 
 const createdAddressValidation = Joi.object({
   street: Joi.string().max(255).optional(),
